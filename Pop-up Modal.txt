@@ -1,0 +1,197 @@
+JS
+
+$(function () {
+	$('#MPOuter').addClass('has-modal');
+	$('.team').each(function () {
+		var self = $(this),
+			classList = $(self).attr('class').split(' '),
+			index = classList.length,
+			klass = classList[index - 1],
+			img = $(self).find('img'),
+            name = $(self).find('h3'),
+            position = $(self).find('h4'),
+			link = "<button type='button' onclick='openModal(\"" + klass + "\");'>Learn More</button>",
+			bioImage = $(img).clone(),
+			bioSelector = '.bio.' + klass,
+			bio = $(bioSelector).find('.HtmlContent');
+			
+        $(bio).wrapInner('<div class="bio-text" />');
+        $(bioImage).prependTo(bio);
+        $(bioImage).wrap('<div class="bio-image" />');
+        $(position).clone().prependTo($(bio).find('.bio-text'));
+        $(name).clone().prependTo($(bio).find('.bio-text'));
+	
+			
+		$(self).find('.HtmlContent').append(link);
+	});
+	
+	$('.bio').prepend('<button type="button" onclick="closeModal();" class="close-modal"><i class="ft ft-close"></i></button>');
+	
+	$(document).keyup(function (e){
+		if (e.keyCode == 27) {
+			closeModal();
+		}
+	});
+	$(document).click(function (e) {
+		if ($(e.target).hasClass('modal-open')) {
+			closeModal();
+		}
+	});
+});
+
+function openModal(val) {
+	var klass = '.bio.' + val;
+	$(klass).addClass('open');
+	$('#MPOuter').addClass('modal-open');
+}
+
+function closeModal() {
+	$('.bio').removeClass('open');
+	$('#MPOuter').removeClass('modal-open');
+}
+
+CSS
+
+#MPOuter.has-modal::before {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: -1;
+	opacity: 0;
+	display: block;
+}
+#MPOuter.has-modal.modal-open::before {
+	z-index: 1010;
+	opacity: 1;
+}
+.team-wrapper > .col-md-12,
+.team-wrapper-4 > .col-md-12 {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 5px;
+}
+.team {
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 33%;
+	padding: 15px;
+	display: flex;
+	position: relative;
+}
+.team-wrapper-4 .team {
+	flex-basis: 25%;
+}
+.team .HtmlContent {
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 100%;
+	padding: 30px 30px 60px 30px;
+	border-radius: 4px;
+	overflow: hidden;
+	background-color: #f7f8f9;
+	position: relative;
+	text-align: center;
+}
+.team img {
+	margin-left: auto;
+	margin-right: auto;
+}
+.team h3,
+.bio h3 {
+	font-weight: 600;
+	font-size: 22px;
+	color: #005b94;
+	letter-spacing: 0.25px;
+	margin-top: 16px;
+	margin-bottom: 6px;
+}
+.team h4,
+.bio h4 {
+	font-size: 16px;
+	color: #343741;
+	letter-spacing: 0.25px;
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+.team button {
+	display: block;
+	text-align: center;
+	padding: 16px;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 20px;
+	color: #005b94;
+	letter-spacing: 1px;
+	background: #e5ebf1;
+	border: none;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.team button:hover,
+.team button:focus {
+	color: #fff;
+	background-color: #005b94;
+}
+
+.bio {
+	display: none;
+	position: fixed;
+	height: 400px;
+	width: 700px;
+	top: calc(50% - 200px);
+	left: calc(50% - 350px);
+	border-radius: 4px;
+	background: #f7f8f9;
+	padding: 40px;
+}
+.bio.open {
+	display: block;
+	z-index: 1020;
+}
+.bio .HtmlContent {
+	display: flex;
+	height: 100%;
+}
+.bio-image {
+	flex-basis: 30%;
+	padding-right: 15px;
+}
+.bio-text {
+	flex-basis: 70%;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.bio h3 {
+	margin-top: 0;
+}
+.bio h4 {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #dfe1df;
+}
+.bio button {
+	position: absolute;
+	background: transparent;
+	border: none;
+	top: 0;
+	right: 0;
+	color: #005b94;
+	font-size: 24px;
+	z-index: 20;
+}
+
+HTML
+
+1. In a new HTML content item add an image, h3, h4 and paragraph text
+2. Within the CSS wrapper class name field add in ‘team [name]’
+3. Add in a new HTML content item below the one you just created and add in whatever you would like (eg. images and paragraph text)
+4. Within the CSS wrapper class name field add in ‘bio [name]’
