@@ -1,0 +1,74 @@
+JS
+
+$(function() {
+$(".accordion-heading").each(function() {
+	$(this).next(".accordion-text").andSelf().wrapAll("<div class='accordion-wrap' />");
+});
+
+$('.accordion-heading').on('click', function() {
+	var items = [];
+	$('.accordion-wrap').each(function (i, item) {
+		items.push(item);
+	});
+	$parent_box = $(this).closest('.accordion-wrap');
+	$parent_box.siblings().find('.accordion-text').slideUp();
+	$parent_box.find('.accordion-text').slideToggle(600, 'swing');
+	$parent_box.toggleClass('open');
+	var selected = $(items).index($parent_box);
+	for (var j = 0; j < items.length; j++) {
+		if (j !== selected) {
+			$(items[j]).removeClass('open');
+		}
+	}
+});
+});
+
+CSS
+
+ .accordion-heading h3 {
+	  font-size: 20px;
+	  font-weight: 400;
+	  color: #005b94;
+	  background: #fff;
+	  padding: 15px 10px;
+	  margin: 0;
+	  border-top: 1px solid #f4f4f4;
+	  cursor: pointer;
+	  transition: 0.3s;
+  }
+  
+  .accordion-heading h3:hover,
+  .accordion-heading h3:focus {
+	  color: #49c7ed;
+	  transition: 0.3s;
+  }
+  
+  .accordion-heading h3::before {
+	  font-family: MNRealtors;
+	  content: "\f008";
+	  margin-right: 10px;
+  }
+  
+  .open .accordion-heading h3::before {
+	  font-family: MNRealtors;
+	  content: "\f006";
+  }
+  
+  .accordion-text {
+	  display: none;
+  }
+  
+  .accordion-wrap .ContentItemHtml,
+  .accordion-wrap .ContentItemHtml:hover {
+	  transition: none !important;
+  }
+  
+  .accordion-wrap {
+	  margin-bottom: 15px;
+  }
+  
+  HTML
+  
+  1. Create two HTML content elements (top and a bottom)
+  2. Within the top element add in an <h3> and within the CSS Wrapper Class Name Field add in ‘accordion-header’
+  3. Within the bottom element add in paragraph text and add in the class ‘accordion-text container’ 
