@@ -1,4 +1,4 @@
-*CSS**
+CSS
 
 .checkmark-list ul {
   padding-left: 0;
@@ -29,6 +29,6 @@
   top: 20px;
  }
  
- **HTML**
+ HTML
  
  Created a bulleted list and add in the class 'checkmark-list'
