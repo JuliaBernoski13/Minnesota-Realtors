@@ -31,4 +31,5 @@ CSS
  
  HTML
  
- Created a bulleted list and add in the class 'checkmark-list'
+ 1. Create a bulleted list 
+ 2. Within the CSS Wrapper Class Name Field add in 'checkmark-list'
