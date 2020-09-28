@@ -1,0 +1,86 @@
+ CSS
+ 
+ .img-blockquote {
+	  padding-left: 140px;
+	  position: relative;
+	  font-size: 20px;
+	  margin-top: 30px;
+	  margin-bottom: 30px;
+  }
+  .img-blockquote .HtmlContent > strong:first-child,
+  .awards .HtmlContent > strong:first-child,
+  .gray-tile-wrapper .gray-tile .HtmlContent > strong:first-child,
+  .bio-image > strong,
+  .team .HtmlContent > strong:first-child {
+	  width: 120px;
+	  height: 120px;
+	  border-radius: 50%;
+	  overflow: hidden;
+	  display: inline-flex;
+	  justify-content: center;
+	  align-items: center;
+  }
+  .bio-image > strong,
+  .team .HtmlContent > strong:first-child {
+	  width: 125px;
+	  height: 125px;
+  }
+  .img-blockquote .HtmlContent > strong:first-child {
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+  }
+  .awards .HtmlContent > strong:first-child,
+  .gray-tile-wrapper .gray-tile .HtmlContent > strong:first-child {
+	  width: 175px;
+	  height: 175px;
+	  display: flex;
+	  margin-left: auto;
+	  margin-right: auto;
+	  margin-bottom: 30px;
+  }
+  .img-blockquote .HtmlContent > strong:first-child img,
+  .awards .HtmlContent > strong:first-child img,
+  .gray-tile-wrapper .gray-tile .HtmlContent > strong:first-child img,
+  .bio-image > strong img,
+  .team .HtmlContent > strong:first-child img {
+	  position: relative;
+	  max-width: 100%;
+	  height: auto;
+  }
+  .awards .gray-tile .HtmlContent > strong:first-child img,
+  .gray-tile-wrapper .gray-tile .HtmlContent > strong:first-child img {
+	  border-radius: 0;
+	  margin-bottom: 0;
+  }
+  .img-blockquote p:last-of-type {
+	  display: flex;
+	  border-top: 1px solid #dfe1df;
+	  justify-content: space-between;
+	  margin-top: 20px;
+	  padding-top: 20px;
+  }
+  .img-blockquote p:last-of-type br {
+	  display: none;
+  }
+  .img-blockquote p:last-of-type em {
+	  font-style: normal;
+	  font-size: 16px;
+  }
+  .img-blockquote p:last-of-type em::before {
+	  font-family: MNRealtors;
+	  color: #ffd600;
+	  margin-right: 7px;
+  }
+  .img-blockquote p:last-of-type em:first-of-type::before {
+	  content: '\f00b';
+  }
+  .img-blockquote p:last-of-type em:nth-of-type(2)::before {
+	  content: '\f009';
+  }
+
+HTML
+
+1. Create a new HTML content item.
+2. Within the content item add in an image wrapped in a <strong> tag, add in paragraph text, and then the name and place within italized paragraph text.
+3. Within the CSS Wrapper Class Name Field add in ‘img-blockquote’
